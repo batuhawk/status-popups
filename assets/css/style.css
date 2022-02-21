@@ -1,0 +1,221 @@
+*,
+*::before,
+*::after {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+html, 
+body {
+height: 100vh;
+background-color: #666666;
+font-family: 'Open Sans', sans-serif;
+}
+
+body {
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+button {
+padding: 25px 75px;
+width: 300px;
+color: #FFFFFF;
+text-decoration: none;
+border: none;
+border-radius: 15px;
+outline: none;
+font-size: 25px;
+letter-spacing: 2px;
+font-weight: 900;
+cursor: pointer;
+
+
+}
+
+.button-success {
+  background-color: #007E33;
+  margin-right: 15px;
+}
+
+.button-error {
+  background-color: #CC0000;
+  margin-right: 15px;
+}
+
+.button-warning {
+  background-color: #FF8800;
+}
+
+svg {
+  width: 350px;
+}
+
+.modal {
+  height: 600px;
+  width: 600px;
+  background-color: #FFFFFF;
+  border-radius: 25px;
+  box-shadow: 10px 0 50px rgba(0, 0, 0, 0.5);
+  position: fixed;
+  visibility: hidden;
+  overflow: hidden;
+  opacity: 0;
+  transition: visibility 0.5s, opacity 0.5s;
+}
+
+.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+.modal-header {
+  position: relative;
+  height: 100px;
+  width: 100%;
+  padding: 0 20px 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #ffffff;
+}
+
+.header-success {
+  background: linear-gradient(90deg, #007E33, #00C851);
+}
+
+.header-error {
+  background: linear-gradient(90deg, #CC0000, #ff4444);
+}
+
+.header-warning {
+  background: linear-gradient(90deg, #FF8800, #ffbb33);
+}
+
+.title {
+  flex: 50%;
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.line-one,
+.line-two {
+  height: 29px;
+  width: 6px;
+  border-radius: 5px;
+  background-color: #FFFFFF;
+}
+
+.line-one {
+  transform: rotate(45deg);
+}
+
+.line-two {
+  transform: rotate(-45deg);
+  margin-left: -5px;
+}
+
+.modal-body {
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/*Success SVG*/
+.active .path {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 0;
+}
+
+.active .path.circle {
+  animation: circle 0.9s ease-in-out;
+}
+
+.active .path.check {
+  stroke-dashoffset: -100;
+  animation: check 0.9s .40s ease-in-out forwards;
+}
+
+@keyframes circle {
+  0% {
+    stroke-dashoffset: 1000;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes check {
+  0% {
+    stroke-dashoffset: -100;
+  }
+  100% {
+    stroke-dashoffset: 900;
+  }
+}
+/*Success SVG End*/
+
+/*Error SVG*/
+.cross-line1 {
+      stroke-dasharray: 104px 105px;
+      stroke-dashoffset: 105px;
+      animation: cross-line .15s .9s linear both;
+}
+
+  .cross-line2 {
+      stroke-dasharray: 104px 105px;
+      stroke-dashoffset: 105px;
+      animation: cross-line .2s .6s linear both;
+}
+
+@keyframes cross-line {
+  100% {
+          stroke-dashoffset: 0;
+  }
+}
+/*Error SVG End*/
+    
+/*Warning SVG*/
+.active .exclamation-line {
+  stroke-dasharray: 200px;  
+  animation: exclamation-line 1s linear;
+}
+
+.active .exclamation-dot {
+  animation: exclamation-dot 1.2s;
+}
+
+@keyframes exclamation-line {
+    0% {
+    stroke-dashoffset: 200;
+  }
+    25% {
+    stroke-dashoffset: 200;
+  }
+  100% { 
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes exclamation-dot {
+  0% {
+    transform: scaleZ(0);
+  }
+  75% { 
+    transform: scaleZ(0);
+  }
+  100% { 
+    transform: scaleZ(1);
+  }
+}
+/*Warning SVG End*/
